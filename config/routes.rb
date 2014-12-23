@@ -1,4 +1,5 @@
 FreeProject::Application.routes.draw do
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -12,6 +13,8 @@ FreeProject::Application.routes.draw do
       match '/' => 'base#index'
     end
   end
+
+  resources :sessions, :only => [:new, :create, :destroy] 
   root :to => 'welcome#index'
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

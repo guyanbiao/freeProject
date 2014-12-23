@@ -1,0 +1,64 @@
+<%= content_for :head do %>
+  <style type="text/css">
+      body{ margin: 0px; color: #4F3DAD !important; }
+      .container{ width: 960px; text-align: center; margin: auto; }
+      .main{ margin: 50px 0px; }
+      .floater  { 
+         height:50%;
+         width: 960px; text-align: center; 
+         margin: 120px auto 0px;
+         font-size: 3em;
+      }
+      .main-container{  
+        background: rgba(255,255,255,0.3);
+        padding: 12px;
+        box-shadow: 0 0 8px 0 rgba(0,0,0,0.2),   inset 0 0 10px 0 rgba(44, 15, 196, 1);
+        margin:  0px auto 1px;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+    .ele{
+      margin: 20px 0px;
+    }
+    .ele .label{
+      display: -webkit-inline-box;
+      width: 100px;
+    }
+    .ele .text-field{
+      border: 1px solid #cccccc;
+      height: 30px;
+      line-height: 28px;
+      width: 300px;
+    }
+    .ele .submit{
+      padding: 10px 25px;
+      font-size: 1.2em;
+    }
+  </style>
+<% end %>
+  <div class="floater">网聚直播</div>
+   <div class="main-container">
+     <div class="container">
+        <div class="main">
+        <%= form_for(@session, url: sessions_path, method: 'POST') do |f|%>
+        <!-- <form name="subimit-form" action="" accept="UTF-8"> -->
+          <div class="ele">
+            <div class="label">用户名：</div>
+            <input name="user_name" class="text-field">
+          </div>
+          <div class="ele">
+            <div class="label">密码：</div>
+               <input name="password" type="password" class="text-field">
+            </div>
+         <div class="ele">
+            <%= f.submit '登陆', class: 'submit' %>
+         </div>
+         <% end %>
+         <!-- </form> -->
+        </div>
+      </div>
+  </div>
+  <script type="text/javascript">
+  $(function(){
+
+  })
+  </script>

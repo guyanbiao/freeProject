@@ -15,6 +15,7 @@ gem 'annotate', '~> 2.6.5' #, :group => :development # 生成model字段注释
 gem 'rqrcode', '~> 0.4.2'
 gem 'uuid', '~> 2.3.7' # UUID
 gem "default_value_for", "~> 3.0.0" #  默认值
+gem 'bcrypt', '~> 3.1.9' # 加密gem
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
