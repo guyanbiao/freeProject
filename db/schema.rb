@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(:version => 20141223144514) do
     t.string   "name",                   :default => "",                    :null => false, :comment => "活动名称"
     t.string   "token",                  :default => "",                    :null => false, :comment => "活动唯一标识"
     t.string   "two_dimension_code_url", :default => "",                    :null => false, :comment => "二维码网络地址"
-    t.datetime "published_at",           :default => '2014-12-23 12:53:31',                 :comment => "活动发布时间"
-    t.datetime "started_at",             :default => '2014-12-23 12:53:31',                 :comment => "活动开始时间"
+    t.datetime "published_at",           :default => '2014-12-24 06:51:15',                 :comment => "活动发布时间"
+    t.datetime "started_at",             :default => '2014-12-24 06:51:15',                 :comment => "活动开始时间"
     t.integer  "duration",               :default => 0,                                     :comment => "活动时间"
     t.datetime "created_at",                                                :null => false
     t.datetime "updated_at",                                                :null => false
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(:version => 20141223144514) do
     t.string   "user_id",            :default => "",                    :null => false, :comment => "用户id"
     t.string   "ip_addr",            :default => "",                    :null => false, :comment => "登陆ip地址"
     t.string   "last_login_ip_addr", :default => "",                    :null => false, :comment => "上一次登陆的ip地址"
-    t.datetime "login_time",         :default => '2014-12-23 14:52:35', :null => false, :comment => "登陆时间"
-    t.datetime "last_login_time",    :default => '2014-12-23 14:52:35', :null => false, :comment => "上一次登陆时间"
+    t.datetime "login_time",         :default => '2014-12-24 06:51:16', :null => false, :comment => "登陆时间"
+    t.datetime "last_login_time",    :default => '2014-12-24 06:51:16', :null => false, :comment => "上一次登陆时间"
     t.datetime "created_at",                                            :null => false
     t.datetime "updated_at",                                            :null => false
   end

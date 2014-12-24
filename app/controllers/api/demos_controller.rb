@@ -1,5 +1,6 @@
 #encoding: utf-8
 class Api::DemosController < Api::BaseController
+	before_filter :authenticate_user!
 	def create
 		@demo =  Demo.new demo_params
 		if @demo.save

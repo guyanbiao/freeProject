@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/skinnyworm/wechat-rails
+  revision: ae1c49abedc5d47839fd29a30b85947189b94645
+  specs:
+    wechat-rails (0.1.1)
+      nokogiri (>= 1.6.0)
+      rails (>= 3.2.14)
+      rest-client
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -60,8 +69,12 @@ GEM
     migration_comments (0.3.2)
       activerecord (>= 2.3.2)
     mime-types (1.25.1)
+    mini_portile (0.6.1)
     multi_json (1.10.1)
     mysql2 (0.3.17)
+    netrc (0.10.2)
+    nokogiri (1.6.5)
+      mini_portile (~> 0.6.0)
     polyglot (0.3.5)
     rack (1.4.5)
     rack-cache (1.2)
@@ -88,6 +101,9 @@ GEM
     rake (10.4.2)
     rdoc (3.12.2)
       json (~> 1.4)
+    rest-client (1.7.2)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
     rqrcode (0.4.2)
     sass (3.4.9)
     sass-rails (3.2.6)
@@ -128,3 +144,4 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
   uuid (~> 2.3.7)
+  wechat-rails!

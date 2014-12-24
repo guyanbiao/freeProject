@@ -16,6 +16,7 @@ gem 'rqrcode', '~> 0.4.2'
 gem 'uuid', '~> 2.3.7' # UUID
 gem "default_value_for", "~> 3.0.0" #  默认值
 gem 'bcrypt', '~> 3.1.9' # 加密gem
+gem "wechat-rails", git:"https://github.com/skinnyworm/wechat-rails" # 微信公共平台
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
