@@ -17,7 +17,7 @@ class Api::DemosController < Api::BaseController
 
 	def  two_dimension_code
 		@demo = Demo.find(params[:id])
-		@qr = RQRCode::QRCode.new( @demo.token , :size => 4, :level => :h )
+		@qr = RQRCode::QRCode.new( @demo.token , :size => 5, :level => :h )
 		render :partial => 'two_dimension_code'
 	end
 	

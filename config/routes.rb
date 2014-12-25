@@ -1,8 +1,10 @@
 FreeProject::Application.routes.draw do
 
+  devise_for :users
+  devise_for :admins
   # The priority is based upon order of creation:
   # first created -> highest priority.
-
+  match '/admin' => 'admin/profiles#index'
   constraints Domains::Api do
      scope :api, :module => "api" do
       resources :demos, :only => [:create,:show] do
@@ -13,7 +15,7 @@ FreeProject::Application.routes.draw do
       match '/' => 'base#index'
     end
   end
-
+  resources :demos, :only => [:new, :create, :index]
   resources :sessions, :only => [:new, :create, :destroy] 
   root :to => 'welcome#index'
   # Sample of regular route:

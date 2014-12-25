@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: admins # 管理员用户
+#
+#  id                 :integer          not null, primary key
+#  name               :string(255)      default(""), not null # 用户名
+#  email              :string(255)      default(""), not null # 电子邮件
+#  encrypted_password :string(255)      default(""), not null # 密码
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+#  column: value

@@ -11,37 +11,65 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141223144514) do
+ActiveRecord::Schema.define(:version => 20141225020948) do
+
+  create_table "admins", :force => true, :comment => "管理员用户" do |t|
+    t.string   "name",               :default => "", :null => false, :comment => "用户名"
+    t.string   "email",              :default => "", :null => false, :comment => "电子邮件"
+    t.string   "encrypted_password", :default => "", :null => false, :comment => "密码"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
+
+  create_table "contents", :force => true, :comment => "微信" do |t|
+    t.integer  "demo_id",      :default => 0,                     :null => false, :comment => "活动id"
+    t.datetime "published_at", :default => '2014-12-25 09:34:28', :null => false, :comment => "发送时间"
+    t.string   "sender_id",    :default => "0",                   :null => false, :comment => "发送者id"
+    t.string   "content",                                         :null => false, :comment => "消息內容"
+    t.string   "from",         :default => "web",                 :null => false, :comment => "信息来源"
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
+  end
 
   create_table "demos", :force => true, :comment => "活动" do |t|
     t.string   "name",                   :default => "",                    :null => false, :comment => "活动名称"
     t.string   "token",                  :default => "",                    :null => false, :comment => "活动唯一标识"
     t.string   "two_dimension_code_url", :default => "",                    :null => false, :comment => "二维码网络地址"
-    t.datetime "published_at",           :default => '2014-12-24 06:51:15',                 :comment => "活动发布时间"
-    t.datetime "started_at",             :default => '2014-12-24 06:51:15',                 :comment => "活动开始时间"
+    t.datetime "published_at",           :default => '2014-12-25 09:34:27',                 :comment => "活动发布时间"
+    t.datetime "started_at",             :default => '2014-12-25 09:34:27',                 :comment => "活动开始时间"
     t.integer  "duration",               :default => 0,                                     :comment => "活动时间"
     t.datetime "created_at",                                                :null => false
     t.datetime "updated_at",                                                :null => false
   end
 
-  create_table "sessions", :force => true, :comment => "登陆" do |t|
-    t.string   "user_id",            :default => "",                    :null => false, :comment => "用户id"
-    t.string   "ip_addr",            :default => "",                    :null => false, :comment => "登陆ip地址"
-    t.string   "last_login_ip_addr", :default => "",                    :null => false, :comment => "上一次登陆的ip地址"
-    t.datetime "login_time",         :default => '2014-12-24 06:51:16', :null => false, :comment => "登陆时间"
-    t.datetime "last_login_time",    :default => '2014-12-24 06:51:16', :null => false, :comment => "上一次登陆时间"
-    t.datetime "created_at",                                            :null => false
-    t.datetime "updated_at",                                            :null => false
+  create_table "statistics", :force => true, :comment => "统计" do |t|
+    t.integer  "source_id",                 :null => false, :comment => "资源id"
+    t.datetime "point",                     :null => false, :comment => "统计时间"
+    t.integer  "count",      :default => 0, :null => false, :comment => "数量"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "users", :force => true, :comment => "用户Model" do |t|
-    t.string   "name",       :default => "",    :null => false, :comment => "用户名"
-    t.string   "password",   :default => "",    :null => false, :comment => "密码"
-    t.string   "email",      :default => "",    :null => false, :comment => "电子邮件"
-    t.integer  "status",     :default => 0,     :null => false, :comment => "用户状态"
-    t.boolean  "dynamic",    :default => false, :null => false, :comment => "是否允许多处登陆"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.string   "name",                   :default => "", :null => false, :comment => "用户名"
+    t.string   "password",               :default => "", :null => false, :comment => "密码"
+    t.string   "password_confirmation",  :default => "", :null => false, :comment => "确认密码"
+    t.string   "email",                  :default => "", :null => false, :comment => "电子邮件"
+    t.integer  "status",                 :default => 0,  :null => false, :comment => "用户状态"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end

@@ -1,0 +1,25 @@
+# == Schema Information
+#
+# Table name: statistics # 统计
+#
+#  id         :integer          not null, primary key
+#  source_id  :integer          not null              # 资源id
+#  point      :datetime         not null              # 统计时间
+#  count      :integer          default(0), not null  # 数量
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  source_id: 1
+  type: 
+  point: 2014-12-24 17:45:55
+  count: 1
+
+two:
+  source_id: 1
+  type: 
+  point: 2014-12-24 17:45:55
+  count: 1
