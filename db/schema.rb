@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141225020948) do
+ActiveRecord::Schema.define(:version => 20141225070745) do
 
   create_table "admins", :force => true, :comment => "管理员用户" do |t|
     t.string   "name",               :default => "", :null => false, :comment => "用户名"
@@ -19,6 +19,19 @@ ActiveRecord::Schema.define(:version => 20141225020948) do
     t.string   "encrypted_password", :default => "", :null => false, :comment => "密码"
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
+  end
+
+  create_table "configrations", :force => true, :comment => "弹幕活动的配置" do |t|
+    t.integer  "demo_id",          :default => 0,     :null => false, :comment => "活动id"
+    t.integer  "font_size",        :default => 20,    :null => false, :comment => "弹幕字体大小"
+    t.integer  "speed",            :default => 3,     :null => false, :comment => "弹幕滚动速度"
+    t.integer  "rate",             :default => 0,     :null => false, :comment => "弹幕频率"
+    t.integer  "model",            :default => 1,     :null => false, :comment => "弹幕模式"
+    t.boolean  "show_user_name",   :default => false, :null => false, :comment => "是否显示用户名"
+    t.boolean  "show_user_avatar", :default => false, :null => false, :comment => "是否显示用户头像"
+    t.integer  "check_model",      :default => 1,     :null => false, :comment => "审核模式"
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
   end
 
   create_table "contents", :force => true, :comment => "微信" do |t|

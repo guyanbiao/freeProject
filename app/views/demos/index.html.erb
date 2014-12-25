@@ -5,8 +5,10 @@
 			<th>开始时间</th>
 		</thead>
 		<tbody>
-			<%= render :partial => 'list' %>
-			<%= paginate @demos %>
+			<div>
+				<%= render :partial => 'list' %>
+			</div>
 		</tbody>
 	</table>
+	<div><%= paginate @demos %></div>
 </div>

@@ -16,13 +16,7 @@
   <%= yield :head %>
 </head>
 <body>
-<%= render :partial => 'layouts/header' %>
-<div class="">
-  <%= render :partial => 'layouts/left_nav' %>
-  <div class="col-xm-3 col-sm-9 col-md-9 col-lg-10 right-panel">
-   <%= yield %>
-  </div>
-</div>
+<%= yield %>
 <%= yield :footer %>
 </body>
 </html>

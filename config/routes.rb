@@ -1,5 +1,7 @@
 FreeProject::Application.routes.draw do
 
+  get "profiles" => "profiles#show"
+
   devise_for :users
   devise_for :admins
   # The priority is based upon order of creation:
@@ -15,8 +17,19 @@ FreeProject::Application.routes.draw do
       match '/' => 'base#index'
     end
   end
-  resources :demos, :only => [:new, :create, :index,:show]
-  resources :sessions, :only => [:new, :create, :destroy] 
+  resources :demos, :only => [:new, :create, :index,:show] do
+   member do
+     get :white
+     get :check
+   end
+  end
+  resources :sessions, :only => [:new, :create, :destroy]
+  resources :statistics, :only => [:index]
+  resources :welcome, :only => [] do
+    collection do
+      get 'test'
+    end
+  end 
   root :to => 'welcome#index'
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
