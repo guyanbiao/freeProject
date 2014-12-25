@@ -1,0 +1,161 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'juggernaut' ]
+2 info using npm@1.4.28
+3 info using node@v0.13.0-pre
+4 verbose cache add [ 'juggernaut', null ]
+5 verbose cache add name=undefined spec="juggernaut" args=["juggernaut",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'juggernaut',
+6 verbose parsed url   path: 'juggernaut',
+6 verbose parsed url   href: 'juggernaut' }
+7 silly lockFile 5d1162f3-juggernaut juggernaut
+8 verbose lock juggernaut /home/spf/.npm/5d1162f3-juggernaut.lock
+9 silly lockFile 5d1162f3-juggernaut juggernaut
+10 silly lockFile 5d1162f3-juggernaut juggernaut
+11 verbose addNamed [ 'juggernaut', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 937d55e5-juggernaut juggernaut@
+14 verbose lock juggernaut@ /home/spf/.npm/937d55e5-juggernaut.lock
+15 silly addNameRange { name: 'juggernaut', range: '*', hasData: false }
+16 verbose request where is /juggernaut
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id 9bb844275d04921b
+19 verbose url raw /juggernaut
+20 verbose url resolving [ 'https://registry.npmjs.org/', './juggernaut' ]
+21 verbose url resolved https://registry.npmjs.org/juggernaut
+22 verbose request where is https://registry.npmjs.org/juggernaut
+23 info trying registry request attempt 1 at 23:35:30
+24 http GET https://registry.npmjs.org/juggernaut
+25 http 200 https://registry.npmjs.org/juggernaut
+26 silly registry.get cb [ 200,
+26 silly registry.get   { date: 'Thu, 25 Dec 2014 15:35:32 GMT',
+26 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+26 silly registry.get     etag: '"5JH8OSCAVIZ8QQ4PX8GZOHR5V"',
+26 silly registry.get     'content-type': 'application/json',
+26 silly registry.get     'cache-control': 'max-age=60',
+26 silly registry.get     'content-length': '11510',
+26 silly registry.get     'accept-ranges': 'bytes',
+26 silly registry.get     via: '1.1 varnish',
+26 silly registry.get     age: '0',
+26 silly registry.get     'x-served-by': 'cache-ty68-TYO',
+26 silly registry.get     'x-cache': 'MISS',
+26 silly registry.get     'x-cache-hits': '0',
+26 silly registry.get     'x-timer': 'S1419521731.917244,VS0,VE130',
+26 silly registry.get     vary: 'Accept',
+26 silly registry.get     connection: 'close' } ]
+27 silly addNameRange number 2 { name: 'juggernaut', range: '*', hasData: true }
+28 silly addNameRange versions [ 'juggernaut',
+28 silly addNameRange   [ '2.0.0',
+28 silly addNameRange     '2.0.1',
+28 silly addNameRange     '2.0.2',
+28 silly addNameRange     '2.0.3',
+28 silly addNameRange     '2.0.4',
+28 silly addNameRange     '2.0.5',
+28 silly addNameRange     '2.0.6',
+28 silly addNameRange     '2.0.7',
+28 silly addNameRange     '2.0.8',
+28 silly addNameRange     '2.0.9',
+28 silly addNameRange     '2.1.0',
+28 silly addNameRange     '2.1.1' ] ]
+29 verbose addNamed [ 'juggernaut', '2.1.1' ]
+30 verbose addNamed [ '2.1.1', '2.1.1' ]
+31 silly lockFile f66a72e1-juggernaut-2-1-1 juggernaut@2.1.1
+32 verbose lock juggernaut@2.1.1 /home/spf/.npm/f66a72e1-juggernaut-2-1-1.lock
+33 silly lockFile bf945789--juggernaut-juggernaut-2-1-1-tgz https://registry.npmjs.org/juggernaut/-/juggernaut-2.1.1.tgz
+34 verbose lock https://registry.npmjs.org/juggernaut/-/juggernaut-2.1.1.tgz /home/spf/.npm/bf945789--juggernaut-juggernaut-2-1-1-tgz.lock
+35 verbose addRemoteTarball [ 'https://registry.npmjs.org/juggernaut/-/juggernaut-2.1.1.tgz',
+35 verbose addRemoteTarball   '57daa0c655c292e239b7a3b129abdd228b9ff996' ]
+36 info retry fetch attempt 1 at 23:35:32
+37 verbose fetch to= /tmp/npm-4197-xutVPdLY/registry.npmjs.org/juggernaut/-/juggernaut-2.1.1.tgz
+38 http GET https://registry.npmjs.org/juggernaut/-/juggernaut-2.1.1.tgz
+39 http 200 https://registry.npmjs.org/juggernaut/-/juggernaut-2.1.1.tgz
+40 silly lockFile bf945789--juggernaut-juggernaut-2-1-1-tgz https://registry.npmjs.org/juggernaut/-/juggernaut-2.1.1.tgz
+41 silly lockFile bf945789--juggernaut-juggernaut-2-1-1-tgz https://registry.npmjs.org/juggernaut/-/juggernaut-2.1.1.tgz
+42 silly lockFile f66a72e1-juggernaut-2-1-1 juggernaut@2.1.1
+43 silly lockFile f66a72e1-juggernaut-2-1-1 juggernaut@2.1.1
+44 silly lockFile 937d55e5-juggernaut juggernaut@
+45 silly lockFile 937d55e5-juggernaut juggernaut@
+46 silly resolved [ { name: 'juggernaut',
+46 silly resolved     description: 'Realtime PubSub server push.',
+46 silly resolved     version: '2.1.1',
+46 silly resolved     author: { name: 'maccman' },
+46 silly resolved     licenses: [ [Object] ],
+46 silly resolved     repository: { type: 'git', url: 'git://github.com/maccman/juggernaut.git' },
+46 silly resolved     engine: [ 'node >=0.1.102' ],
+46 silly resolved     main: './index',
+46 silly resolved     bin: { juggernaut: './server.js' },
+46 silly resolved     dependencies:
+46 silly resolved      { 'socket.io': '=0.8.7',
+46 silly resolved        redis: '=0.6.6',
+46 silly resolved        'node-static-maccman': '~0.5.3',
+46 silly resolved        optimist: '~0.2.3' },
+46 silly resolved     _npmUser: { name: 'maccman', email: 'maccman@gmail.com' },
+46 silly resolved     _id: 'juggernaut@2.1.1',
+46 silly resolved     scripts: { start: 'node server.js' },
+46 silly resolved     devDependencies: {},
+46 silly resolved     engines: { node: '*' },
+46 silly resolved     _engineSupported: true,
+46 silly resolved     _npmVersion: '1.0.106',
+46 silly resolved     _nodeVersion: 'v0.6.2',
+46 silly resolved     _defaultsLoaded: true,
+46 silly resolved     dist:
+46 silly resolved      { shasum: '57daa0c655c292e239b7a3b129abdd228b9ff996',
+46 silly resolved        tarball: 'http://registry.npmjs.org/juggernaut/-/juggernaut-2.1.1.tgz' },
+46 silly resolved     maintainers: [ [Object] ],
+46 silly resolved     directories: {},
+46 silly resolved     _shasum: '57daa0c655c292e239b7a3b129abdd228b9ff996',
+46 silly resolved     _from: 'juggernaut@',
+46 silly resolved     _resolved: 'https://registry.npmjs.org/juggernaut/-/juggernaut-2.1.1.tgz' } ]
+47 info install juggernaut@2.1.1 into /usr/local/lib
+48 info installOne juggernaut@2.1.1
+49 verbose lib/node_modules/juggernaut unbuild
+50 verbose tar unpack /home/spf/.npm/juggernaut/2.1.1/package.tgz
+51 silly lockFile 73637b33-ocal-lib-node-modules-juggernaut tar:///usr/local/lib/node_modules/juggernaut
+52 verbose lock tar:///usr/local/lib/node_modules/juggernaut /home/spf/.npm/73637b33-ocal-lib-node-modules-juggernaut.lock
+53 silly lockFile 9c6d988f-npm-juggernaut-2-1-1-package-tgz tar:///home/spf/.npm/juggernaut/2.1.1/package.tgz
+54 verbose lock tar:///home/spf/.npm/juggernaut/2.1.1/package.tgz /home/spf/.npm/9c6d988f-npm-juggernaut-2-1-1-package-tgz.lock
+55 silly gunzTarPerm modes [ '775', '664' ]
+56 error Error: EACCES, mkdir '/usr/local/lib/node_modules/juggernaut'
+56 error     at Error (native)
+56 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/juggernaut']
+56 error   stack: 'Error: EACCES, mkdir \'/usr/local/lib/node_modules/juggernaut\'\n    at Error (native)',
+56 error   errno: -13,
+56 error   code: 'EACCES',
+56 error   path: '/usr/local/lib/node_modules/juggernaut',
+56 error   fstream_type: 'Directory',
+56 error   fstream_path: '/usr/local/lib/node_modules/juggernaut',
+56 error   fstream_class: 'DirWriter',
+56 error   fstream_stack:
+56 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
+56 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
+56 error      'Object.oncomplete (fs.js:93:15)' ] }
+57 error Please try running this command again as root/Administrator.
+58 error System Linux 3.13.0-43-generic
+59 error command "/usr/local/bin/node" "/usr/local/bin/npm" "install" "-g" "juggernaut"
+60 error cwd /home/spf/RubymineProjects/freeProject
+61 error node -v v0.13.0-pre
+62 error npm -v 1.4.28
+63 error path /usr/local/lib/node_modules/juggernaut
+64 error fstream_path /usr/local/lib/node_modules/juggernaut
+65 error fstream_type Directory
+66 error fstream_class DirWriter
+67 error code EACCES
+68 error errno -13
+69 error stack Error: EACCES, mkdir '/usr/local/lib/node_modules/juggernaut'
+69 error stack     at Error (native)
+70 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
+70 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
+70 error fstream_stack Object.oncomplete (fs.js:93:15)
+71 verbose exit [ -13, true ]

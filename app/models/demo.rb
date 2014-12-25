@@ -16,10 +16,11 @@
 
 class Demo < ActiveRecord::Base
 	attr_accessible :name, :published_at, :two_dimension_code_url, :started_at, :duration, :token
-	attr_accessor :font_size, :model, :rate, :show_user_avatar, :show_user_name, :speed
+	#attr_accessor :font_size, :model, :rate, :show_user_avatar, :show_user_name, :speed
 	has_many :statistics, :foreign_key => :source_id, :class_name => 'Statistic'
 	has_many :contents
 	has_one :configration
+	delegate  :font_size, :model, :rate, :show_user_avatar, :show_user_name, :speed, to: :configration
 	paginates_per 2
 	validates :token, uniqueness: {
 		message: "活动已存在"

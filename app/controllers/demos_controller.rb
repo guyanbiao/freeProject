@@ -10,9 +10,11 @@ class DemosController < ApplicationController
 
 	def new
 		@demo = Demo.new
+		@demo.configration = Configration.new
 	end
 
 	def create
+		puts @p
 		@demo = Demo.new @p
 		if @demo.save && @demo.errors.empty?
 			@demo.configration = Configration.create(@config)
