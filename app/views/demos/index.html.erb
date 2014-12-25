@@ -1,1 +1,12 @@
-fsdfdsafds
+<div class="container">
+	<table class="table table-hover">
+		<thead>
+			<th>活动名称</th>
+			<th>开始时间</th>
+		</thead>
+		<tbody>
+			<%= render :partial => 'list' %>
+			<%= paginate @demos %>
+		</tbody>
+	</table>
+</div>

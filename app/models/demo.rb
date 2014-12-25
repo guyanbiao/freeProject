@@ -18,6 +18,7 @@ class Demo < ActiveRecord::Base
 	attr_accessible :name, :published_at, :two_dimension_code_url, :started_at, :duration, :token
 	has_many :statistics, :foreign_key => :source_id, :class_name => 'Statistic'
 	has_many :contents
+	paginates_per 1
 	validates :token, uniqueness: {
 		message: "活动已存在"
 	},:presence => {

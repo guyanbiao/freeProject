@@ -8,7 +8,8 @@ class CreateDemos < ActiveRecord::Migration
       t.datetime :published_at, :default => Time.now , :comment => "活动发布时间"
       t.datetime :started_at, :default => Time.now, :comment => "活动开始时间"
       t.integer :duration, :default => 0, :comment => "活动时间"
-
+      t.text :description , :comment => "活动描述"
+      
       t.timestamps
     end
   end

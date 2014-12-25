@@ -16,7 +16,8 @@ gem 'rqrcode', '~> 0.4.2'
 gem 'uuid', '~> 2.3.7' # UUID
 gem "default_value_for", "~> 3.0.0" #  默认值
 # gem 'bcrypt', '~> 3.1.9' # 加密gem
-gem 'devise'
+gem 'devise' # 注册认证
+gem 'kaminari', '~> 0.16.1' # 分页
 gem "wechat-rails", git:"https://github.com/skinnyworm/wechat-rails" # 微信公共平台
 #===========================================================
 # 后台任务

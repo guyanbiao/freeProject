@@ -15,7 +15,7 @@ FreeProject::Application.routes.draw do
       match '/' => 'base#index'
     end
   end
-  resources :demos, :only => [:new, :create, :index]
+  resources :demos, :only => [:new, :create, :index,:show]
   resources :sessions, :only => [:new, :create, :destroy] 
   root :to => 'welcome#index'
   # Sample of regular route:
