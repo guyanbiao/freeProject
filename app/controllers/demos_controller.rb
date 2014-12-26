@@ -38,6 +38,18 @@ class DemosController < ApplicationController
 		render layout: 'base'
 	end
 
+	def read
+		@demo = Demo.find(params[:id])
+		@contents = @demo.contents.read
+		render json: @contents
+	end
+
+	def unread
+		@demo = Demo.find(params[:id])
+		@contents = @demo.contents.un_read
+		render json: @contents
+	end
+
 	private
 	def demo_params
 		@p = {

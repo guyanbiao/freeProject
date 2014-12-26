@@ -37,17 +37,37 @@
 			</div>
 		</div>
 		<div class="col-md-12 manager-panel">
-			<%= form_for @demo.configration,url:"" do |f|%>
+			<%= form_for @demo.configration, url:"", :html =>{ :id => "edit-configration"} do |f|%>
 				<div class="col-md-2">模式：<%= f.select 'model', Configration::MODEL.invert %></div>
-				<div class="col-md-2">显示用户名：<%= f.check_box, :show_user_name %></div>
+				<div class="col-md-2">字体大小：<span id="fontSize"><%= @demo.font_size %>px</span>
+				<%= f.hidden_field :font_size %>
+				<div id="font-size-slider" class="slider"></div>
+				</div>
+				<div class="col-md-2">
+					速度：<span id="speed"><%= @demo.speed %></span>
+					<%= f.hidden_field :speed %>
+					<div id="speed-slider" class="slider"></div>
+				</div>
+				<div class="col-md-2">
+					频率：<span id="rate"><%= @demo.rate %>条/秒</span>
+					<%= f.hidden_field :rate %>
+					<div id="rate-slider" class="slider"></div>
+				</div>
+				<div class="col-md-2">显示用户名：<%= f.check_box :show_user_name %></div>
+				<div class="col-md-2">显示用户头像：<%= f.check_box :show_user_avatar %></div>
 			<% end %>
 		</div>
 	<%= @demo.configration.inspect %>
 </div>
+<%= content_for :head do %>
+	<%= stylesheet_link_tag 'plugins/jquery_ui/jquery-ui.min' %>
+<% end %>
 <%= content_for :footer do %>
 <script type="text/javascript">
 	var Options = (function(){
 		return {
+			demoId: <%= @demo.id %>,
+			configrationId: <%= @demo.configration.id %>,
 			fontSize: <%= @demo.font_size %>,
 			speed: <%= @demo.speed %>,
 			rate: <%= @demo.rate %>,
@@ -59,5 +79,6 @@
 		}
 	})();
 </script>
+<%= javascript_include_tag 'plugins/jquery_ui/jquery-ui.min' %>
 <%= javascript_include_tag 'danmu_check_message' %>
 <% end %>

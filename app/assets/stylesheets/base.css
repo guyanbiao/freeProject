@@ -1,3 +1,6 @@
+.error{
+	color: red;
+}
 .navbar{
 	border-radius:0px;
 	margin: 0px;
@@ -34,4 +37,8 @@
 }
 .manager-panel .edit_configration{
 
+}
+/***==========Demo.form============***/
+.new_demo{
+	margin-top: 30px;
 }

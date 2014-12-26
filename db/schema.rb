@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20141225070745) do
     t.integer  "demo_id",          :default => 0,     :null => false, :comment => "活动id"
     t.integer  "font_size",        :default => 20,    :null => false, :comment => "弹幕字体大小"
     t.integer  "speed",            :default => 3,     :null => false, :comment => "弹幕滚动速度"
-    t.integer  "rate",             :default => 0,     :null => false, :comment => "弹幕频率"
+    t.integer  "rate",             :default => 1,     :null => false, :comment => "弹幕频率"
     t.integer  "model",            :default => 1,     :null => false, :comment => "弹幕模式"
     t.boolean  "show_user_name",   :default => false, :null => false, :comment => "是否显示用户名"
     t.boolean  "show_user_avatar", :default => false, :null => false, :comment => "是否显示用户头像"
@@ -35,12 +35,13 @@ ActiveRecord::Schema.define(:version => 20141225070745) do
     t.datetime "updated_at",                          :null => false
   end
 
-  create_table "contents", :force => true, :comment => "微信" do |t|
+  create_table "contents", :force => true, :comment => "信息" do |t|
     t.integer  "demo_id",      :default => 0,                     :null => false, :comment => "活动id"
-    t.datetime "published_at", :default => '2014-12-25 09:34:28', :null => false, :comment => "发送时间"
-    t.string   "sender_id",    :default => "0",                   :null => false, :comment => "发送者id"
+    t.datetime "published_at", :default => '2014-12-26 20:16:52', :null => false, :comment => "发送时间"
+    t.string   "sender_id",    :default => "",                    :null => false, :comment => "发送者id/对应微信中的FromUserName"
     t.string   "content",                                         :null => false, :comment => "消息內容"
     t.string   "from",         :default => "web",                 :null => false, :comment => "信息来源"
+    t.boolean  "is_read",      :default => false,                 :null => false, :comment => "是否已读"
     t.datetime "created_at",                                      :null => false
     t.datetime "updated_at",                                      :null => false
   end

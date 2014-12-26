@@ -21,6 +21,15 @@ class Api::DemosController < Api::BaseController
 		render :partial => 'two_dimension_code'
 	end
 	
+	def  unread
+		
+		render json: {}
+	end
+	
+	def read
+
+		render json: {}
+	end
 	private
 	def demo_params
 		params[:demo]

@@ -13,6 +13,10 @@ FreeProject::Application.routes.draw do
         member do
           get :two_dimension_code
         end
+        collection do
+          get :read
+          get :unread
+        end
       end
       match '/' => 'base#index'
     end
@@ -22,7 +26,12 @@ FreeProject::Application.routes.draw do
      get :white
      get :check
    end
+   collection do
+          get :read
+          get :unread
+    end
   end
+  resources :configrations, :only => [:update]
   resources :sessions, :only => [:new, :create, :destroy]
   resources :statistics, :only => [:index]
   resources :welcome, :only => [] do

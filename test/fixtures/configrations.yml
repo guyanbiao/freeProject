@@ -6,7 +6,7 @@
 #  demo_id          :integer          default(0), not null     # 活动id
 #  font_size        :integer          default(20), not null    # 弹幕字体大小
 #  speed            :integer          default(3), not null     # 弹幕滚动速度
-#  rate             :integer          default(0), not null     # 弹幕频率
+#  rate             :integer          default(1), not null     # 弹幕频率
 #  model            :integer          default(1), not null     # 弹幕模式
 #  show_user_name   :boolean          default(FALSE), not null # 是否显示用户名
 #  show_user_avatar :boolean          default(FALSE), not null # 是否显示用户头像
