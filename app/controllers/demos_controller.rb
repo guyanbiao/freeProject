@@ -40,13 +40,13 @@ class DemosController < ApplicationController
 
 	def read
 		@demo = Demo.find(params[:id])
-		@contents = @demo.contents.read
+		@contents = @demo.contents.read.order("published_at")
 		render json: @contents
 	end
 
 	def unread
 		@demo = Demo.find(params[:id])
-		@contents = @demo.contents.un_read
+		@contents = @demo.contents.un_read.order("published_at DESC")
 		render json: @contents
 	end
 

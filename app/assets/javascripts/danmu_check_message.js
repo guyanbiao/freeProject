@@ -6,7 +6,7 @@ $(function(){
 			var fieldName = $(val).attr("id").split("configration_")[1];
 			(function(ele){
 				$(document).on('click', "#"+$(val).attr("id") , function(event) {
-					var ops = {}; ops["id"] = Options.demoId, ops[$(val).attr("name")] = $(val).prop('checked');
+					var ops = {}; ops[$(val).attr("name")] = $(val).prop('checked');
 					Api.put("/configrations/" + Options.configrationId , ops, function(){
 						//always
 					}, function(data, status){
@@ -25,7 +25,24 @@ $(function(){
 			})(val);
 		};
 	});
-	
+
+	$("#configration_model").change(function(){
+		var ops = {}; ops[$(this).attr("name")] = $(this).val();
+		Api.put("/configrations/" + Options.configrationId , ops, function(){
+					//always
+				}, function(data, status){
+					// success
+					if(data.success){
+						delete data.success;
+						Options.model = Number(data.model);
+					}
+				}, function(){
+					// fail
+				}, function(){
+
+			});
+	});
+
 	$( "#font-size-slider" ).slider({
 	      value: Options.fontSize,
 	      min: 20,
@@ -51,10 +68,25 @@ $(function(){
 	      value: Options.rate,
 	      min: 1,
 	      max: 15,
-	      step: 3,
+	      step: 2,
 	      slide: function( event, ele ) {
 	      		$("#configration_rate").val(ele.value);
 	        	$( "#rate" ).html( ele.value +"秒");
+	        	var ops = {}; ops["configration[rate]"] = ele.value;
+       		Api.put("/configrations/" + Options.configrationId , ops, function(){
+					//always
+				}, function(data, status){
+					// success
+					if(data.success){
+						delete data.success;
+						Options.rate = Number(data.rate);
+						
+					}
+				}, function(){
+					// fail
+				}, function(){
+
+			});       		
 	      }
 	});
 	

@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(:version => 20141225070745) do
 
   create_table "contents", :force => true, :comment => "信息" do |t|
     t.integer  "demo_id",      :default => 0,                     :null => false, :comment => "活动id"
-    t.datetime "published_at", :default => '2014-12-26 20:16:52', :null => false, :comment => "发送时间"
+    t.datetime "published_at", :default => '2014-12-27 00:13:41', :null => false, :comment => "发送时间"
     t.string   "sender_id",    :default => "",                    :null => false, :comment => "发送者id/对应微信中的FromUserName"
     t.string   "content",                                         :null => false, :comment => "消息內容"
     t.string   "from",         :default => "web",                 :null => false, :comment => "信息来源"
@@ -50,9 +50,10 @@ ActiveRecord::Schema.define(:version => 20141225070745) do
     t.string   "name",                   :default => "",                    :null => false, :comment => "活动名称"
     t.string   "token",                  :default => "",                    :null => false, :comment => "活动唯一标识"
     t.string   "two_dimension_code_url", :default => "",                    :null => false, :comment => "二维码网络地址"
-    t.datetime "published_at",           :default => '2014-12-25 09:34:27',                 :comment => "活动发布时间"
-    t.datetime "started_at",             :default => '2014-12-25 09:34:27',                 :comment => "活动开始时间"
+    t.datetime "published_at",           :default => '2014-12-27 00:13:41',                 :comment => "活动发布时间"
+    t.datetime "started_at",             :default => '2014-12-27 00:13:41',                 :comment => "活动开始时间"
     t.integer  "duration",               :default => 0,                                     :comment => "活动时间"
+    t.text     "description",                                                               :comment => "活动描述"
     t.datetime "created_at",                                                :null => false
     t.datetime "updated_at",                                                :null => false
   end
