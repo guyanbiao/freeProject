@@ -1,3 +1,63 @@
-审核页面
-<h2><%= @demo.name %></h2>
-<%= @demo.configration.inspect %>
+<div class="message-panel">
+	<div class="container">
+		<h2><%= @demo.name %></h2>
+	</div>
+		<div class="col-sm-6 col-md-6 unread">
+			<header>
+				未显示
+			</header>
+			<body>
+				<div class="content-panel">
+					<% 10.times do %>
+					<div class="ele">
+						<div class="avatar"><img src="/assets/rails.png"></div>
+						<div class="content">
+							<div class="name">发范德萨发的撒分阿三的</div>
+							<div class="message">版本的撒分不算大包袱的撒吧分吧四大法宝的撒</div>
+						</div>
+					</div>
+					<% end %>
+				</div>
+			</body>
+		</div>
+		<div class="col-sm-6 col-md-6 read">
+			<header>
+				已显示
+			</header>
+			<div class="content-panel">
+				<% 10.times do %>
+					<div class="ele">
+						<div class="avatar"><img src="/assets/rails.png"></div>
+						<div class="content">
+							<div class="name">发范德萨发的撒分阿三的</div>
+							<div class="message">版本的撒分不算大包袱的撒吧分吧四大法宝的撒</div>
+						</div>
+					</div>
+					<% end %>
+			</div>
+		</div>
+		<div class="col-md-12 manager-panel">
+			<%= form_for @demo.configration,url:"" do |f|%>
+				<div class="col-md-2">模式：<%= f.select 'model', Configration::MODEL.invert %></div>
+				<div class="col-md-2">显示用户名：<%= f.check_box, :show_user_name %></div>
+			<% end %>
+		</div>
+	<%= @demo.configration.inspect %>
+</div>
+<%= content_for :footer do %>
+<script type="text/javascript">
+	var Options = (function(){
+		return {
+			fontSize: <%= @demo.font_size %>,
+			speed: <%= @demo.speed %>,
+			rate: <%= @demo.rate %>,
+			mode: <%= @demo.model %>,
+			showUserName: <%= @demo.show_user_name %>,
+			showUserAvatar: <%= @demo.show_user_avatar %>,
+			checkModel: <%= @demo.check_model %>,
+			status: <%= @demo.status %>
+		}
+	})();
+</script>
+<%= javascript_include_tag 'danmu_check_message' %>
+<% end %>

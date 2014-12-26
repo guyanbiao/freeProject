@@ -20,7 +20,7 @@ class Demo < ActiveRecord::Base
 	has_many :statistics, :foreign_key => :source_id, :class_name => 'Statistic'
 	has_many :contents
 	has_one :configration
-	delegate  :font_size, :model, :rate, :show_user_avatar, :show_user_name, :speed, to: :configration
+	delegate  :font_size, :model, :rate, :show_user_avatar, :show_user_name, :speed, :check_model, :status, to: :configration
 	paginates_per 2
 	validates :token, uniqueness: {
 		message: "活动已存在"

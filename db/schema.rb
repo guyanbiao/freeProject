@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20141225070745) do
     t.boolean  "show_user_name",   :default => false, :null => false, :comment => "是否显示用户名"
     t.boolean  "show_user_avatar", :default => false, :null => false, :comment => "是否显示用户头像"
     t.integer  "check_model",      :default => 1,     :null => false, :comment => "审核模式"
+    t.integer  "status",           :default => 0,     :null => false, :comment => "状态"
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
   end
