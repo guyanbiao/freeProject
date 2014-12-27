@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(:version => 20141225070745) do
     t.boolean  "show_user_name",   :default => false, :null => false, :comment => "是否显示用户名"
     t.boolean  "show_user_avatar", :default => false, :null => false, :comment => "是否显示用户头像"
     t.integer  "check_model",      :default => 1,     :null => false, :comment => "审核模式"
+    t.boolean  "is_started",       :default => false, :null => false, :comment => "是否开始弹幕"
+    t.boolean  "is_stop",          :default => false, :null => false, :comment => "是否暂停弹幕"
     t.integer  "status",           :default => 0,     :null => false, :comment => "状态"
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
@@ -47,11 +49,12 @@ ActiveRecord::Schema.define(:version => 20141225070745) do
   end
 
   create_table "demos", :force => true, :comment => "活动" do |t|
+    t.integer  "user_id",                :default => 0,                     :null => false, :comment => "活动的所有者id"
     t.string   "name",                   :default => "",                    :null => false, :comment => "活动名称"
     t.string   "token",                  :default => "",                    :null => false, :comment => "活动唯一标识"
     t.string   "two_dimension_code_url", :default => "",                    :null => false, :comment => "二维码网络地址"
-    t.datetime "published_at",           :default => '2014-12-27 00:13:41',                 :comment => "活动发布时间"
-    t.datetime "started_at",             :default => '2014-12-27 00:13:41',                 :comment => "活动开始时间"
+    t.datetime "published_at",           :default => '2014-12-27 13:31:22',                 :comment => "活动发布时间"
+    t.datetime "started_at",             :default => '2014-12-27 13:31:22',                 :comment => "活动开始时间"
     t.integer  "duration",               :default => 0,                                     :comment => "活动时间"
     t.text     "description",                                                               :comment => "活动描述"
     t.datetime "created_at",                                                :null => false

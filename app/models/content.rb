@@ -20,4 +20,12 @@ class Content < ActiveRecord::Base
   scope :un_read, -> {where(is_read: false)}
   scope :read, -> {where(is_read: true)}
   
+  def read_once
+  	update_attribute(:is_read, true)
+  end
+
+  def published_at=(time)
+  		write_attribute(:published_at, self.created_at) unless published_at.present?
+  end
+
 end

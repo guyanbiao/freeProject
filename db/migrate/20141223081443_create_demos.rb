@@ -2,6 +2,7 @@
 class CreateDemos < ActiveRecord::Migration
   def change
     create_table :demos, :comment=>"活动" do |t|
+      t.integer :user_id, :default => 0, :null => false, :comment => '活动的所有者id'
       t.string :name, :default => '', :null => false, :comment => "活动名称"
       t.string :token, :default => '', :null => false, :comment => "活动唯一标识"
       t.string :two_dimension_code_url , :default => '', :null => false, :comment => "二维码网络地址"

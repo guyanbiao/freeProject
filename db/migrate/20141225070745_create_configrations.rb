@@ -10,6 +10,8 @@ class CreateConfigrations < ActiveRecord::Migration
       t.boolean :show_user_name, :null => false, :default => false, :comment => '是否显示用户名'
       t.boolean :show_user_avatar, :null => false, :default => false, :comment => '是否显示用户头像'
       t.integer :check_model, :null => false, :default => 1, :comment => '审核模式'
+      t.boolean :is_started, :null => false, :default => false, :comment => '是否开始弹幕'
+      t.boolean :is_stop, :null => false, :default => false, :comment => '是否暂停弹幕'
       t.integer :status , :null => false, :default => 0, :comment => '状态'
       
       t.timestamps

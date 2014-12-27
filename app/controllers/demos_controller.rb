@@ -5,7 +5,7 @@ class DemosController < ApplicationController
 	before_filter :configration_params, :only => [:create]
 
 	def index
-		@demos = Demo.order('created_at').page(params[:page])
+		@demos = current_user.demos.order('created_at').page(params[:page])
 	end
 
 	def new
@@ -15,7 +15,7 @@ class DemosController < ApplicationController
 
 	def create
 		puts @p
-		@demo = Demo.new @p
+		@demo = current_user.demos.build @p
 		if @demo.save && @demo.errors.empty?
 			@demo.configration = Configration.create(@config)
 			redirect_to demos_path
@@ -25,28 +25,28 @@ class DemosController < ApplicationController
 	end
 # 显示活动的详细信息 
 	def show 
-		@demo = Demo.find(params[:id])
+		@demo = current_user.demos.find(params[:id])
 	end	
 	
 	def white
-		@demo = Demo.find(params[:id])
+		@demo = current_user.demos.find(params[:id])
 		render layout: 'base'
 	end
 
 	def check
-		@demo = Demo.find(params[:id])
+		@demo = current_user.demos.find(params[:id])
 		render layout: 'base'
 	end
 
 	def read
-		@demo = Demo.find(params[:id])
-		@contents = @demo.contents.read.order("published_at")
+		@demo = current_user.demos.find(params[:id])
+		@contents = @demo.contents.read.order("id,published_at").last(50)
 		render json: @contents
 	end
 
 	def unread
-		@demo = Demo.find(params[:id])
-		@contents = @demo.contents.un_read.order("published_at DESC")
+		@demo = current_user.demos.find(params[:id])
+		@contents = @demo.contents.un_read.order("id,published_at DESC").first(50)
 		render json: @contents
 	end
 

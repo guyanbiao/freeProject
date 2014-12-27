@@ -64,5 +64,4 @@ Api = (function(){
 		.always(complete);
 	};
 	return api;
-})()
-console.log(Api)
+})();

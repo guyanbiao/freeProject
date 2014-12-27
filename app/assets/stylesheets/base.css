@@ -23,9 +23,10 @@
 	text-align: center;
 }
 .unread .content-panel, .read .content-panel{
-	height: 100%;
-	overflow-y: auto;
-	background: rgba(255,255,255,0.3);
+		color: #000000;
+		height: 100%;
+		overflow-y: auto;
+		 background: rgba(255, 255, 255, 0.3);
         padding: 12px;
         box-shadow: 0 0 8px 0 rgba(0,0,0,0.2),   inset 0 0 10px 0 rgba(44, 15, 196, 1);
         margin:  0px auto 1px;
@@ -38,7 +39,31 @@
 .manager-panel .edit_configration{
 
 }
+.footer{
+	width: 960px;
+	text-align: center;
+}
+.footer .btn{
+	margin: 0px 10px;
+}
 /***==========Demo.form============***/
 .new_demo{
 	margin-top: 30px;
 }
+.ele{
+	padding: 5px 2px;
+}
+.ele .avatar{
+	float: left;
+}
+.ele .avatar img{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+}
+.ele .content .name{
+	margin-left: 5px;
+}
+/*.ele .content div{
+	display: inline;
+}*/

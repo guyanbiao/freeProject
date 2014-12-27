@@ -11,6 +11,8 @@
 #  show_user_name   :boolean          default(FALSE), not null # 是否显示用户名
 #  show_user_avatar :boolean          default(FALSE), not null # 是否显示用户头像
 #  check_model      :integer          default(1), not null     # 审核模式
+#  is_started       :boolean          default(FALSE), not null # 是否开始弹幕
+#  is_stop          :boolean          default(FALSE), not null # 是否暂停弹幕
 #  status           :integer          default(0), not null     # 状态
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
