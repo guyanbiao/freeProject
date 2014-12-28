@@ -24,7 +24,7 @@ class Demo < ActiveRecord::Base
 	has_one :configration
 	belongs_to :user
 	delegate  :font_size, :model, :rate, :show_user_avatar, :show_user_name, :speed, :check_model, to: :configration
-	paginates_per 2
+	paginates_per 20
 	validates :token, uniqueness: {
 		message: "活动已存在"
 	},:presence => {

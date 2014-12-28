@@ -25,6 +25,7 @@ class DemosController < ApplicationController
 	end
 # 显示活动的详细信息 
 	def show 
+		puts 
 		@demo = current_user.demos.find(params[:id])
 	end	
 	

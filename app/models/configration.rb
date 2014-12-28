@@ -22,7 +22,7 @@
 class Configration < ActiveRecord::Base
   attr_accessible :font_size, :model, :rate, :show_user_avatar, :show_user_name, :speed, :demo_id , :check_model, :status, :is_started, :is_stop
   MODEL = {1 => '顶部显示', 2 => '上部显示', 3 => '下部显示', 4 => '底部显示'}
-  STATUS = {1 => '结束', 2 => '开始', 3 => '暂停', 4 => '继续'}
+  STATUS = {-1 => '屏蔽', 1 => '结束', 2 => '开始', 3 => '暂停', 4 => '继续'}
   validates :demo_id, :presence => true
   belongs_to :demo
   # validates :status, inclusion: { in: STATUS.keys }

@@ -7,6 +7,11 @@ GIT
       rails (>= 3.2.14)
       rest-client
 
+PATH
+  remote: /home/spf/RubymineProjects/harmonious_dictionary
+  specs:
+    harmonious_dictionary (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -175,6 +180,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   default_value_for (~> 3.0.0)
   devise
+  harmonious_dictionary!
   jquery-rails
   kaminari (~> 0.16.1)
   migration_comments (~> 0.3.2)

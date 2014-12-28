@@ -19,6 +19,8 @@ gem "default_value_for", "~> 3.0.0" #  默认值
 gem 'devise' # 注册认证
 gem 'kaminari', '~> 0.16.1' # 分页
 gem "wechat-rails", git:"https://github.com/skinnyworm/wechat-rails" # 微信公共平台
+# gem 'harmonious_dictionary', '~> 0.0.1' # 关键字
+gem 'harmonious_dictionary',  :path  =>  "/home/spf/RubymineProjects/harmonious_dictionary"
 #===========================================================
 # 后台任务
 gem 'sidekiq', '~> 3.3.0'
