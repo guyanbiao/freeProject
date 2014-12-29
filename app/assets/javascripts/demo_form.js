@@ -1,5 +1,7 @@
 $(function(){
-	$("#demo_started_at").datepicker();
+	$("#demo_started_at").datepicker({
+		dateFormat: "yy-mm-dd"
+	});
 	$( "#font-size-slider" ).slider({
 	      value:100,
 	      min: 0,

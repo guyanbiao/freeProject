@@ -17,7 +17,7 @@
   <div id="player-unit" style="width: 100%;">
   <div class="m20 abp" id="player" style="width: 100%;">
     <!--<div id="c-region" style="display:none;">640x480</div>-->
-    <div id="commentCanvas" class="container"></div>
+    <div id="commentCanvas" class="container" style="width: 100%; padding: 0px; margin: 0px;"></div>
     <div id="video-container"></div>
   </div>
 </div>
@@ -32,8 +32,49 @@
       client.subscribe(channel, function(message){        
           cm.send({mode: message.mode, html: message.html});
       });
+      var Options = <%= raw @demo.configration.to_json %>;
+      (function(ops){
+        setInterval(function(){
+          Api.get("/demos/moving", {
+              id: Options.demo_id
+            }, function(){
+              //always
+            }, function(data, status){
+              // success
+              if(data.success){
+                  cm.send({mode: Options.model, html: parseMessage2Html(data.message)});
+              }
+              console.log(data)
+            }, function(){
+              // fail
+            }, function(){
 
-      function initSize(){ $("#video-container").height($(window).height()); }
+            })
+        }, ops.rate * 800);
+      })(Options);
+
+function parseMessage2Html(msg){
+  return (function(m){
+    var html = '<div class="ele danmu col-sm-12 col-md-12" id="' + m.id + '">'+
+        '<div class="avatar"></div>'+
+          '<div class="content">'+
+            '<div class="name" style="color: '+ getRandomColor() +'">用户名 : </div>' + 
+            '<div class="message" style="color: '+ getRandomColor() +'">'+m.content+'</div>'+
+          '</div>'+
+        '</div>';
+        return html;
+  })(msg);
+}
+
+ var getRandomColor = function () {
+      return  '#' +
+        (function (color) {
+          return (color += '0123456789abcdef'[Math.floor(Math.random() * 16)])
+            && (color.length == 6) ? color : arguments.callee(color);
+        })('');
+    }
+
+  function initSize(){ $("#video-container").height($(window).height()); }
       initSize();
       $(window).on('resize',initSize);
   })

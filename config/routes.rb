@@ -29,6 +29,7 @@ FreeProject::Application.routes.draw do
    collection do
           get :read
           get :unread
+          get :moving
     end
   end
   resources :configrations, :only => [:update]

@@ -39,11 +39,12 @@ ActiveRecord::Schema.define(:version => 20141225070745) do
 
   create_table "contents", :force => true, :comment => "信息" do |t|
     t.integer  "demo_id",      :default => 0,                     :null => false, :comment => "活动id"
-    t.datetime "published_at", :default => '2014-12-27 00:13:41', :null => false, :comment => "发送时间"
+    t.datetime "published_at", :default => '2014-12-28 17:24:50', :null => false, :comment => "发送时间"
     t.string   "sender_id",    :default => "",                    :null => false, :comment => "发送者id/对应微信中的FromUserName"
     t.string   "content",                                         :null => false, :comment => "消息內容"
     t.string   "from",         :default => "web",                 :null => false, :comment => "信息来源"
     t.boolean  "is_read",      :default => false,                 :null => false, :comment => "是否已读"
+    t.boolean  "moved",        :default => false,                 :null => false, :comment => "显示"
     t.datetime "created_at",                                      :null => false
     t.datetime "updated_at",                                      :null => false
   end

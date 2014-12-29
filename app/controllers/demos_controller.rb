@@ -51,6 +51,15 @@ class DemosController < ApplicationController
 		render json: @contents
 	end
 
+	def moving
+		@demo = current_user.demos.find(params[:id])
+		if @demo.configration.is_started && !@demo.configration.is_stop
+			@content = @demo.contents.read.un_moved.first
+			render json: {success: true, message: @content } and return if @content.present? && @content.update_attribute(:moved, true)
+		end
+		render json: {success: false}
+	end
+
 	private
 	def demo_params
 		@p = {

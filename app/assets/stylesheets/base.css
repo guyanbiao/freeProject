@@ -64,6 +64,81 @@
 .ele .content .name{
 	margin-left: 5px;
 }
-/*.ele .content div{
+.danmu .content div{
 	display: inline;
+}
+/*.danmu .content .name{
+	float: left;
 }*/
+.one_half_first {
+  position: relative;
+  clear: left;
+  margin-left: 0;
+  float: left;
+}
+
+.h2, .h2 a {
+  font-family: "Microsoft Yahei";
+  font-size: 42px;
+  line-height: 1.2em;
+  margin-bottom: 30px;
+  color: #FF675B;
+}
+
+.green, .green a {
+  color: #26ae90;
+}
+
+.h2 a:hover {
+  color: #42484d;
+  font-size: 42px;
+  text-decoration: none;
+  line-height: 1.2em;
+}
+
+.intro {
+  color: #383838;
+  font-family: "Microsoft Yahei";
+  font-size: 18px;
+  line-height: 29px;
+  margin-bottom: 25px;
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+hr {
+  width: 1140px;
+  border: none;
+  clear: both;
+  margin: 40px auto;
+  height: 1px;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+p {
+  font-family: "Microsoft Yahei";
+  font-size: 16px;
+  line-height: 28px;
+  margin-bottom: 20px;
+  color: #656565;
+  font-weight: 300;
+}
+
+.clear {
+  clear: both;
+  display: block;
+  font-size: 0;
+  height: 0;
+  line-height: 0;
+  width: 100%;
+}
+
+.box div {
+  position: absolute;
+  z-index: 100;
+}
+
+.form {
+  width: 960px;
+  margin: auto;
+}
