@@ -59,7 +59,7 @@
 	padding: 5px 2px;
        overflow: auto;
 }
-.ele .avatar,.danmu .avatar{
+.ele .avatar,.danmu {
 	float: left;
 }
 .ele .avatar img{
