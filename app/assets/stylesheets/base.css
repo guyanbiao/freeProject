@@ -1,3 +1,7 @@
+html, body
+{
+    height: 100%;
+}
 /*=======登陆框=================*/
 .login-form .form-ele{
   margin: 10px 0px;
@@ -16,6 +20,11 @@
 	left: 0px;
 	right: 0px;
 	bottom: 0px;
+}
+.left-panel {
+  border-right: 5px solid; 
+  height: 100%;
+  padding: 0px;
 }
 .message-panel .container{
  	text-align: center;
@@ -74,9 +83,6 @@
 	display: inline;
 }
 
-/*.danmu .content .name{
-	float: left;
-}*/
 #font-size-slider.ui-slider .ui-slider-handle, #speed-slider.ui-slider .ui-slider-handle{
   z-index: 1;
 }
@@ -151,4 +157,14 @@ p {
 .form {
   width: 960px;
   margin: auto;
+}
+.circle-ele{
+  height: 325px;
+}
+.circle-ele .img img{
+  height: 211px;
+}
+.circle-ele .info h3{
+  text-align: center;
+  display: block;
 }
