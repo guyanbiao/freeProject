@@ -33,7 +33,7 @@ FreeProject::Application.routes.draw do
     end
   end
   resources :configrations, :only => [:update]
-  resources :contents, :only => [:update]
+  resources :contents, :only => [:update, :destroy]
   resources :sessions, :only => [:new, :create, :destroy]
   resources :statistics, :only => [:index]
   resources :welcome, :only => [] do

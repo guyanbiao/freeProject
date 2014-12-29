@@ -94,10 +94,26 @@ $(function(){
 	      min: 20,
 	      max: 100,
 	      step: 20,
-	      slide: function( event, ele ) {
-	      		console.log(ele.value)
+	      slide: function( event, ele ) {	      		
 	      		$("#demo_font_size").val(ele.value);
 	        	$( "#fontSize" ).html( ele.value + "px" );
+	        	var ops = {}; ops["configration[font_size]"] = ele.value;
+	        	Api.put("/configrations/" + Options.configrationId , ops, function(){
+					//always
+				}, function(data, status){
+					// success
+					if(data.success){
+						delete data.success;
+						Options.fontSize = Number(ele.value);
+					}else{
+						location.reload();
+						alert("更新失败");
+					}
+				}, function(){
+					// fail
+				}, function(){
+
+				});
 	      }
 	});
 	$( "#speed-slider" ).slider({
@@ -108,6 +124,23 @@ $(function(){
 	      slide: function( event, ele ) {
 	      		$("#configration_speed").val(ele.value);
 	        	$( "#speed" ).html( ele.value );
+	        	var ops = {}; ops["configration[speed]"] = ele.value;
+	        	Api.put("/configrations/" + Options.configrationId , ops, function(){
+					//always
+				}, function(data, status){
+					// success
+					if(data.success){
+						delete data.success;
+						Options.speed = Number(ele.value);
+					}else{
+						location.reload();
+						alert("更新失败");
+					}
+				}, function(){
+					// fail
+				}, function(){
+
+				});
 	      }
 	});
 	$( "#rate-slider" ).slider({
@@ -126,6 +159,7 @@ $(function(){
 					if(data.success){
 						delete data.success;
 						Options.rate = Number(data.rate);
+						managerDemo(Options.rate);
 					}
 				}, function(){
 					// fail
@@ -222,18 +256,35 @@ $(function(){
 		}, Number(rate) * 520);
 	};
 
-	function parseMessage2Html(msg){
-		return (function(m){
-			var html = '<div class="ele col-sm-12 col-md-12" id="' + m.id + '">'+
-					'<div class="avatar"><img src="/assets/rails.png"></div>'+
-						'<div class="content">'+
-							'<div class="name">' + "用户名" + '<span style="float:right;">'+m.published_at+'</span></div>'+
-							'<div class="message">'+m.content+'</div>'+
-						'</div>'+
-					'</div>';
-					return html;
-		})(msg);
-	}
+function parseMessage2Html(msg){
+	return (function(m){
+		var html = '<div class="ele col-sm-12 col-md-12" id="' + m.id + '">'+
+				'<div class="avatar"><img src="/assets/rails.png"></div>'+
+					'<div class="content">'+
+						'<div class="name">' + "用户名" + '<span style="float:right;">'+m.published_at+'</span></div>'+
+						'<div class="message">'+m.content+'</div>'+
+						'<div style="display:block;"><input type="button" class="btn btn-default" id="delete-'+m.id+'" value="删除"/></div>'+
+					'</div>'+
+				'</div>';		
+		$(document).on('click', '#delete-'+ m.id , function(event) {
+			event.preventDefault();
+			Api.delete("/contents/"+m.id, {
+				demo_id: Options.demoId
+			}, function(){
+				//always
+			}, function(data, status){
+				// success
+				console.log(data)
+				$("#"+m.id).remove();
+			}, function(){
+				// fail
+			}, function(){
+
+			})
+		});		
+	return html;	
+	})(msg);
+}
 
 	readMessage();
 	pastRecords();

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141225070745) do
+ActiveRecord::Schema.define(:version => 20141229063917) do
 
   create_table "admins", :force => true, :comment => "管理员用户" do |t|
     t.string   "name",               :default => "", :null => false, :comment => "用户名"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(:version => 20141225070745) do
   create_table "configrations", :force => true, :comment => "弹幕活动的配置" do |t|
     t.integer  "demo_id",          :default => 0,     :null => false, :comment => "活动id"
     t.integer  "font_size",        :default => 20,    :null => false, :comment => "弹幕字体大小"
-    t.integer  "speed",            :default => 3,     :null => false, :comment => "弹幕滚动速度"
+    t.integer  "speed",            :default => 4,     :null => false, :comment => "弹幕滚动速度"
     t.integer  "rate",             :default => 1,     :null => false, :comment => "弹幕频率"
     t.integer  "model",            :default => 1,     :null => false, :comment => "弹幕模式"
     t.boolean  "show_user_name",   :default => false, :null => false, :comment => "是否显示用户名"
@@ -39,12 +39,13 @@ ActiveRecord::Schema.define(:version => 20141225070745) do
 
   create_table "contents", :force => true, :comment => "信息" do |t|
     t.integer  "demo_id",      :default => 0,                     :null => false, :comment => "活动id"
-    t.datetime "published_at", :default => '2014-12-28 17:24:50', :null => false, :comment => "发送时间"
+    t.datetime "published_at", :default => '2014-12-29 13:10:46', :null => false, :comment => "发送时间"
     t.string   "sender_id",    :default => "",                    :null => false, :comment => "发送者id/对应微信中的FromUserName"
     t.string   "content",                                         :null => false, :comment => "消息內容"
     t.string   "from",         :default => "web",                 :null => false, :comment => "信息来源"
     t.boolean  "is_read",      :default => false,                 :null => false, :comment => "是否已读"
     t.boolean  "moved",        :default => false,                 :null => false, :comment => "显示"
+    t.integer  "status",       :default => 0,                     :null => false, :comment => "状态"
     t.datetime "created_at",                                      :null => false
     t.datetime "updated_at",                                      :null => false
   end
@@ -54,8 +55,8 @@ ActiveRecord::Schema.define(:version => 20141225070745) do
     t.string   "name",                   :default => "",                    :null => false, :comment => "活动名称"
     t.string   "token",                  :default => "",                    :null => false, :comment => "活动唯一标识"
     t.string   "two_dimension_code_url", :default => "",                    :null => false, :comment => "二维码网络地址"
-    t.datetime "published_at",           :default => '2014-12-27 13:31:22',                 :comment => "活动发布时间"
-    t.datetime "started_at",             :default => '2014-12-27 13:31:22',                 :comment => "活动开始时间"
+    t.datetime "published_at",           :default => '2014-12-29 10:46:15',                 :comment => "活动发布时间"
+    t.datetime "started_at",             :default => '2014-12-29 10:46:15',                 :comment => "活动开始时间"
     t.integer  "duration",               :default => 0,                                     :comment => "活动时间"
     t.text     "description",                                                               :comment => "活动描述"
     t.datetime "created_at",                                                :null => false
@@ -87,6 +88,7 @@ ActiveRecord::Schema.define(:version => 20141225070745) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "token",                  :default => "", :null => false, :comment => "系统用户唯一标识"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

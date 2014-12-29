@@ -9,7 +9,7 @@ class CreateContents < ActiveRecord::Migration
        t.string :from, :null => false, :default =>'web', :comment => "信息来源"
        t.boolean :is_read, :null => false, :default => false, :comment => "是否已读"
        t.boolean :moved, :null => false, :default => false, :comment => "显示"
-       # t.integer :status, :null => false, :default=> 0, :comment => "状态"
+       t.integer :status, :null => false, :default=> 0, :comment => "状态"
 
       t.timestamps
     end

@@ -34,32 +34,46 @@
       });
       var Options = <%= raw @demo.configration.to_json %>;
       (function(ops){
-        setInterval(function(){
-          Api.get("/demos/moving", {
-              id: Options.demo_id
-            }, function(){
-              //always
-            }, function(data, status){
-              // success
-              if(data.success){
-                  cm.send({mode: Options.model, html: parseMessage2Html(data.message)});
-              }
-              console.log(data)
-            }, function(){
-              // fail
-            }, function(){
-
-            })
-        }, ops.rate * 800);
+        handler(ops);
       })(Options);
 
-function parseMessage2Html(msg){
+function handler(ops){
+    Options.moving = setInterval(function(){
+        Api.get("/demos/moving", {
+            id: ops.demo_id
+          }, function(){
+            //always
+          }, function(data, status){
+            // success
+            if(data.success){
+               if(data.config.is_started){
+                    cm.options.scroll.scale = data.config.speed;
+                    if(data.config.rate != Options.rate){
+                      Options.rate = data.config.rate;
+                      Options.model = data.conf.model;
+                      clearInterval(Options.moving);
+                      handler(data.config);
+                    }             
+                    cm.send({mode: Options.model, html: parseMessage2Html(data.message, data.config)});       
+               }else{
+                  clearInterval(Options.moving);
+               }
+            }
+          }, function(){
+            // fail
+          }, function(){
+
+          })
+      }, ops.rate * 800);
+}
+function parseMessage2Html(msg, conf){
+  var userAvatarStyle = "width: " + conf.font_size + "px;height:"+conf.font_size+"px;border-radius:50%;display:inline;";
   return (function(m){
-    var html = '<div class="ele danmu col-sm-12 col-md-12" id="' + m.id + '">'+
-        '<div class="avatar"></div>'+
-          '<div class="content">'+
-            '<div class="name" style="color: '+ getRandomColor() +'">用户名 : </div>' + 
-            '<div class="message" style="color: '+ getRandomColor() +'">'+m.content+'</div>'+
+    var html = '<div class="danmu col-sm-12 col-md-12" id="' + m.id + '">'+
+        '<div class="avatar">'+(conf.show_user_avatar ? '<img src="/assets/rails.png" style="'+userAvatarStyle+'">' : ' ' )+ '</div>'+
+          '<div class="content" style="line-height: '+ conf.font_size +'px;">'+
+            '<div class="name" style="color: '+ getRandomColor() +'; font-size: '+ conf.font_size +'px;">'+(conf.show_user_name ? '用户名 :' : '')+' </div>' + 
+            '<div class="message" style="color: '+ getRandomColor() +'; font-size: '+ conf.font_size +'px;">'+m.content+'</div>'+
           '</div>'+
         '</div>';
         return html;

@@ -63,5 +63,19 @@ Api = (function(){
 		.fail(error)
 		.always(complete);
 	};
+
+	api.delete = function(url, params, complete, success, error, beforeSend){
+		$.ajax({
+			url:  url,
+			type: 'DELETE',
+			dataType: 'json',
+			data: params,
+			beforeSend: beforeSend
+		})
+		.done(success)
+		.fail(error)
+		.always(complete);
+	};
+
 	return api;
 })();

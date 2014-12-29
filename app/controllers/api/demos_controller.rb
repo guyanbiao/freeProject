@@ -30,6 +30,11 @@ class Api::DemosController < Api::BaseController
 
 		render json: {}
 	end
+
+	def synchronization
+		
+	end
+	
 	private
 	def demo_params
 		params[:demo]

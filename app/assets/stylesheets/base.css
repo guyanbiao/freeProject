@@ -1,3 +1,8 @@
+/*=======登陆框=================*/
+.login-form .form-ele{
+  margin: 10px 0px;
+}
+
 .error{
 	color: red;
 }
@@ -52,8 +57,9 @@
 }
 .ele{
 	padding: 5px 2px;
+       overflow: auto;
 }
-.ele .avatar{
+.ele .avatar,.danmu .avatar{
 	float: left;
 }
 .ele .avatar img{
@@ -67,9 +73,13 @@
 .danmu .content div{
 	display: inline;
 }
+
 /*.danmu .content .name{
 	float: left;
 }*/
+#font-size-slider.ui-slider .ui-slider-handle, #speed-slider.ui-slider .ui-slider-handle{
+  z-index: 1;
+}
 .one_half_first {
   position: relative;
   clear: left;

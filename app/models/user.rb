@@ -20,6 +20,7 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
+#  token                  :string(255)      default(""), not null # 系统用户唯一标识
 #
 # Indexes
 #
@@ -37,4 +38,18 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :status
   has_many :demos
+  default_value_for :token , :allows_nil => false do |variable|
+ 	UUID.new.generate
+  end	
+
+  def email=(email)
+    write_attribute(:email, email || "#{UUID.new.generate}@")
+  end
+  #同步数据
+  def synchronization(user_token)
+  	@user = User.where(token: user_token).first
+  	@user.demos.each do |demo|
+
+  	end if @user.present?
+  end
 end

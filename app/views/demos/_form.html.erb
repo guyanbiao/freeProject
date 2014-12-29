@@ -13,19 +13,19 @@
   	</div>
 	<div class="form-group">
   	    <%= f.label :name, '开始时间' %>
-	    <%= f.text_field :started_at, :value => '', class:'form-control', :placeholder => '开始时间' %>
+	    <%= f.text_field :started_at, class:'form-control', :placeholder => '开始时间' %>
   	</div>	
   	<div><br></div>
   	<!-- :font_size, :model, :rate, :show_user_avatar, :show_user_name, :speed -->
   	<div class="form-group">
-	    <%= f.label :font_size, '字体大小' %>
+	    <%= f.label :font_size, '字体大小' %>&nbsp;&nbsp;<span id="font-size-value" ><%= @demo.font_size %>px</span>
 	    <%= f.hidden_field :font_size, class:'form-control', :placeholder => '字体大小' %>
-	    <div id="font-size-slider"></div>
+	    <div id="font-size-slider" class="slider" style="width: 300px;"></div>
   	</div>
   	<div class="form-group">
-	    <%= f.label :speed, '速度' %><span id="speed_value" ></span>
+	    <%= f.label :speed, '速度' %>&nbsp;&nbsp;<span id="speed-value" class="slider "></span>
 	    <%= f.hidden_field :speed, class:'form-control', :placeholder => '速度' %>
-	    <div id="speed-slider"></div>
+	    <div id="speed-slider" class="slider col-ms-1"  style="width: 300px;"></div>
   	</div>
 	<div class="form-group">
 	    <%= f.label :model, '模式' %>

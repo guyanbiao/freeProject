@@ -3,6 +3,7 @@ class DemosController < ApplicationController
 	before_filter :authenticate_user!
 	before_filter :demo_params, :only => [:create]
 	before_filter :configration_params, :only => [:create]
+	layout 'profiles'
 
 	def index
 		@demos = current_user.demos.order('created_at').page(params[:page])
@@ -31,31 +32,32 @@ class DemosController < ApplicationController
 	
 	def white
 		@demo = current_user.demos.find(params[:id])
-		render layout: 'base'
+		render layout: 'application'
 	end
 
 	def check
 		@demo = current_user.demos.find(params[:id])
-		render layout: 'base'
+		# render layout: 'application'
 	end
 
 	def read
 		@demo = current_user.demos.find(params[:id])
-		@contents = @demo.contents.read.order("id,published_at").last(50)
+		@contents = @demo.contents.read.order("id DESC,published_at DESC").last(50)
 		render json: @contents
 	end
 
 	def unread
 		@demo = current_user.demos.find(params[:id])
-		@contents = @demo.contents.un_read.order("id,published_at DESC").first(50)
+		@contents = @demo.contents.un_read.order("id,published_at").first(50)
 		render json: @contents
 	end
 
 	def moving
 		@demo = current_user.demos.find(params[:id])
-		if @demo.configration.is_started && !@demo.configration.is_stop
+		@configration = @demo.configration
+		if @configration.is_started && !@configration.is_stop
 			@content = @demo.contents.read.un_moved.first
-			render json: {success: true, message: @content } and return if @content.present? && @content.update_attribute(:moved, true)
+			render json: {success: true, message: @content, config: @configration } and return if @content.present? && @content.update_attribute(:moved, true)
 		end
 		render json: {success: false}
 	end
