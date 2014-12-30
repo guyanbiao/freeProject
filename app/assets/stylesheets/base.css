@@ -1,6 +1,24 @@
 html, body
 {
     height: 100%;
+    background-color: #E7E8EB;
+}
+.body{
+  background-color: #ffffff;
+  margin-top: 30px;
+  padding: 0px;
+  border: 1px solid #44B549;
+}
+/*导航条**/
+.my-navbar{
+    border-top: 4px solid #44B549;
+}
+.navbar{
+  border-radius:0px;
+  margin: 0px;
+}
+.left-panel, .right-panel{
+
 }
 /*=======登陆框=================*/
 .login-form .form-ele{
@@ -10,21 +28,12 @@ html, body
 .error{
 	color: red;
 }
-.navbar{
-	border-radius:0px;
-	margin: 0px;
-}
-.left-panel, .right-panel{
-	/*border: 1px solid blue;*/
-	position: relative;
-	left: 0px;
-	right: 0px;
-	bottom: 0px;
-}
+
 .left-panel {
-  border-right: 5px solid; 
+  border-right: 1px solid #cccccc; 
   height: 100%;
   padding: 0px;
+  margin: 0px;
 }
 .message-panel .container{
  	text-align: center;
@@ -37,10 +46,10 @@ html, body
 	text-align: center;
 }
 .unread .content-panel, .read .content-panel{
-		color: #000000;
-		height: 100%;
-		overflow-y: auto;
-		 background: rgba(255, 255, 255, 0.3);
+	 color: #000000;
+	 height: 100%;
+	 overflow-y: auto;
+	 background: rgba(255, 255, 255, 0.3);
         padding: 12px;
         box-shadow: 0 0 8px 0 rgba(0,0,0,0.2),   inset 0 0 10px 0 rgba(44, 15, 196, 1);
         margin:  0px auto 1px;
@@ -82,7 +91,9 @@ html, body
 .danmu .content div{
 	display: inline;
 }
-
+.form-group{
+  padding: 20px 0px;
+}
 #font-size-slider.ui-slider .ui-slider-handle, #speed-slider.ui-slider .ui-slider-handle{
   z-index: 1;
 }
